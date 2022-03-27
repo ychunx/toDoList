@@ -1,1 +1,1 @@
-这是一个 todolist 联系项目
+这是一个 todolist 练习项目
