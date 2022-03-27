@@ -25,6 +25,9 @@ footer {
         margin: 0 auto;
         width: 90%;
     }
+    #form>label{
+        font-size: 16px;
+    }
 }
 @media screen and (min-width: 421px) {
     section,
