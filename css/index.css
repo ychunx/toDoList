@@ -13,10 +13,39 @@ header {
     height: 50px;
 }
 
-section,
+/* section,
 footer {
     margin: 0 auto;
-    width: 80%;
+    width: 600px;
+} */
+
+@media screen and (max-width: 420px) {
+    section,
+    footer {
+        margin: 0 auto;
+        width: 90%;
+    }
+}
+@media screen and (min-width: 421px) {
+    section,
+    footer {
+        margin: 0 auto;
+        width: 400px;
+    }
+}
+@media screen and (min-width: 720px) {
+    section,
+    footer {
+        margin: 0 auto;
+        width: 600px;
+    }
+}
+@media screen and (min-width: 820px) {
+    section,
+    footer {
+        margin: 0 auto;
+        width: 700px;
+    }
 }
 
 #form {
