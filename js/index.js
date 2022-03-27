@@ -34,6 +34,26 @@ $(function() {
         load();
     })
 
+    // 编辑事项内容
+    $("ol,ul").on("dblclick", "p", function () {
+        var str = $(this).html();
+        $(this).html("<input style='width:90%;height:20px;margin: -2px 0 0 40px;padding-left:10px;outline:none;' type='text' value='" + str + "'></input>")
+                .children("input").select();
+        $(this).children("input").on("blur", function () {
+            var upstr = $(this).val();
+            var data = getData();
+            var index = $(this).parents("p").siblings("a").attr("id");
+            data[index].title = upstr;
+            localStorage.setItem("todolist", JSON.stringify(data));
+            load();
+        })
+        $(this).children("input").on("keyup", function (e) {
+            if (e.keyCode === 13) {
+                $(this).blur();
+            }
+        })
+    })
+
     // 渲染页面
     function load () {
         var todoC = 0,doneC = 0;
