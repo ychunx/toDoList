@@ -5,6 +5,7 @@
 
 body {
     background-color: #CDCDCD;
+    width: 100%;
 }
 
 header {
@@ -15,11 +16,11 @@ header {
 section,
 footer {
     margin: 0 auto;
-    width: 600px;
+    width: 80%;
 }
 
 label {
-    width: 100px;
+    width: 20%;
     height: 50px;
     color: #CDCDCD;
     font-size: 24px;
@@ -29,7 +30,7 @@ label {
 #title {
     outline: none;
     border-radius: 5px;
-    width: 350px;
+    width: 60%;
     height: 25px;
     border: 0;
     float: right;
