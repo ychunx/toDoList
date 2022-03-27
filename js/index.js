@@ -37,7 +37,7 @@ $(function() {
     // 编辑事项内容
     $("ol,ul").on("dblclick", "p", function () {
         var str = $(this).html();
-        $(this).html("<input style='width:90%;height:20px;margin: -2px 0 0 40px;padding-left:10px;outline:none;' type='text' value='" + str + "'></input>")
+        $(this).html("<input type='text' value='" + str + "'></input>")
                 .children("input").select();
         $(this).children("input").on("blur", function () {
             var upstr = $(this).val();
@@ -62,10 +62,10 @@ $(function() {
         $.each(list, function (i, val) {
             if(val.done) {
                 doneC++;
-                $("#donelist").prepend("<li><input type='checkbox' checked><p>" + val.title + "</p><a id='" + i + "' href='javascript:;'>删除</a></li>");
+                $("#donelist").prepend("<li><input id='check' type='checkbox' checked><p>" + val.title + "</p><a id='" + i + "' href='javascript:;'>删除</a></li>");
             } else {
                 todoC++;
-                $("#todolist").prepend("<li><input type='checkbox'><p>" + val.title + "</p><a id='" + i + "' href='javascript:;'>删除</a></li>");
+                $("#todolist").prepend("<li><input id='check' type='checkbox'><p>" + val.title + "</p><a id='" + i + "' href='javascript:;'>删除</a></li>");
             }
         })
         $("#todocount").html(todoC + " 个");
