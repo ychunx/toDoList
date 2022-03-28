@@ -31,12 +31,88 @@ footer {
     #title {
         width: 50%;
     }
+    #weather {
+        flex-direction: column;
+    }
+    .boxItems {
+        margin: 0 auto;
+        padding: 10px 10px;
+        box-sizing: border-box;
+        width: 80%;
+        border-top: 1px solid #333;
+    }
+    #weather>div:first-child .boxItems {
+        border: 0;
+    }
+    .boxItems p,
+    .boxItems h3,
+    .boxItems h4 {
+        font-size: 16px;
+        font-weight: normal;
+        display: inline-block;
+    }
+    .boxItems p {
+        border-right: 2px solid #333;
+        padding-right: 3px;
+        float: left;
+    }
+    .boxItems h3 {
+        padding-left: 3px;
+        float: left;
+    }
+    .boxItems h4 {
+        float: right;
+    }
+    #weather>div:first-child .boxItems p,
+    #weather>div:first-child .boxItems h3,
+    #weather>div:first-child .boxItems h4 {
+        text-align: center;
+        display: block;
+        float: none;
+        border: 0;
+        margin-bottom: 10px;
+    }
+    #weather>div:first-child .boxItems p {
+        padding-left: 6px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    #weather>div:first-child .boxItems h3 {
+        font-size: 26px;
+        font-weight: bold;
+    }
+    #weather>div:first-child .boxItems h4 {
+        padding-left: 10px;
+    }
 }
 @media screen and (min-width: 421px) {
     section,
     footer {
         margin: 0 auto;
         width: 400px;
+    }
+    .boxItems {
+        text-align: center;
+        border-left: 1px solid #333;
+    }
+    .boxItems p {
+        font-size: 14px;
+        display: block;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+    .boxItems h3 {
+        font-size: 18px;
+        display: block;
+        margin-top: 15px;
+        /* font-size: 26px; */
+    }
+    .boxItems h4 {
+        font-size: 12px;
+        display: block;
+        margin: 15px 0 20px 0;
+        /* font-size: 14px; */
+        font-weight: normal;
     }
 }
 @media screen and (min-width: 720px) {
@@ -45,12 +121,58 @@ footer {
         margin: 0 auto;
         width: 600px;
     }
+    .boxItems {
+        text-align: center;
+        border-left: 1px solid #333;
+    }
+    .boxItems p {
+        font-size: 16px;
+        display: block;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+    .boxItems h3 {
+        font-size: 26px;
+        display: block;
+        margin-top: 15px;
+        /* font-size: 26px; */
+    }
+    .boxItems h4 {
+        font-size: 14px;
+        display: block;
+        margin: 15px 0 20px 0;
+        /* font-size: 14px; */
+        font-weight: normal;
+    }
 }
 @media screen and (min-width: 820px) {
     section,
     footer {
         margin: 0 auto;
         width: 700px;
+    }
+    .boxItems {
+        text-align: center;
+        border-left: 1px solid #333;
+    }
+    .boxItems p {
+        font-size: 16px;
+        display: block;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+    .boxItems h3 {
+        font-size: 26px;
+        display: block;
+        margin-top: 15px;
+        /* font-size: 26px; */
+    }
+    .boxItems h4 {
+        font-size: 14px;
+        display: block;
+        margin: 15px 0 20px 0;
+        /* font-size: 14px; */
+        font-weight: normal;
     }
 }
 
@@ -99,7 +221,7 @@ ol,ul {
 li {
     list-style: none;
     background-color: #fff;
-    border-radius: 4px;
+    border-radius: 5px;
     position: relative;
     box-sizing: border-box;
     border-left: solid 5px green;
@@ -162,4 +284,47 @@ footer {
 a {
     text-decoration: none;
     color: #666;
+}
+
+/* 天气预报模块 */
+#weather {
+    background-color: #fff;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    display: flex;
+    padding: 20px 0;
+}
+
+#weather>div {
+    flex: 1;
+}
+
+.boxItems {
+    width: 90%;
+    overflow: hidden;
+}
+
+/* .boxItems p {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+} */
+
+/* .boxItems h3 {
+    display: block;
+    margin-top: 15px;
+    font-size: 26px;
+} */
+
+/* .boxItems h4 {
+    display: block;
+    margin: 15px 0 20px 0;
+    font-size: 14px;
+    font-weight: normal;
+} */
+
+#weather>div:first-child .boxItems {
+    border: 0;
 }

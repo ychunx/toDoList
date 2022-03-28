@@ -96,6 +96,36 @@ $(function() {
     }
 
 
-    // 天气模块
-    
+    // 天气预报模块
+
+    // 获取经纬度
+    var longi, lati, url, list;
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function (position) {  
+                longi = position.coords.longitude;
+                lati = position.coords.latitude;
+                url = 'https://api.caiyunapp.com/v2.5/5eyJftwYzMcK52KY/' + longi + ',' + lati + '/daily?dailysteps=7';
+                // console.log(url);
+                $.get(url, function (res) {
+                    list = res.reslut.daily.temperature;
+                    alert(list);
+                })
+            },
+            function (e) {
+               throw(e.message);
+            }
+        )
+    } else {
+        // 接口不支持省级查询
+        /* url = 'http://wthrcdn.etouch.cn/weather_mini?city=' + shengfen;
+        $.ajax({
+            url: url,
+            method: 'GET',
+            success: function(res) {
+              //list = res.data.data.forecast;
+              console.log(res);
+            }
+        }) */
+    }
 })
