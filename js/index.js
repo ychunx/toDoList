@@ -109,11 +109,10 @@ $(function() {
                 // console.log(url);
                 $.get(url, function (res) {
                     list = res.reslut.daily.temperature;
-                    alert(list);
-
                     $.each(list, function (i, val) {
                         $("#weather").append('<div><div class="boxItems"><p>'+val.date+'</p><h3>'+val.avg+'</h3><h4>'+val.max+'° / '+val.min+'°</h4></div></div>');
                     })
+                    console.log(list)
                 })
             },
             function (e) {
