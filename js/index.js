@@ -98,8 +98,31 @@ $(function() {
 
     // 天气预报模块
 
+    AMap.plugin('AMap.CitySearch', function () {
+        var citySearch = new AMap.CitySearch()
+        citySearch.getLocalCity(function (status, result) {
+          if (status === 'complete' && result.info === 'OK') {
+            // 查询成功，result即为当前所在城市信息
+            var city = result.city;
+            url = 'http://wthrcdn.etouch.cn/weather_mini?city=' + city;
+            $.ajax({
+                url: url,
+                method: 'GET',
+                success: function(res) {
+                    var list = JSON.parse(res).data.forecast;
+                    $.each(list, function (i, val) {
+                        $("#weather").append('<div><div class="boxItems"><p>'+val.date.replace('星期', '周')+'</p><h3>'+val.type+'</h3><h4>'+val.high.substr(2,4)+' / '+val.low.substr(2,4)+'</h4></div></div>');
+                    })
+                    $("#weather div").first().find("p").html("今天");
+                }
+            })
+          }
+        })
+    })
+
+    // 响应头没有 Access-Control-Allow-Origin ，放弃
     // 获取经纬度
-    var longi, lati, url, list;
+    /* var longi, lati, url, list;
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             function (position) {  
@@ -120,8 +143,7 @@ $(function() {
             }
         )
     } else {
-        // 接口不支持省级查询
-        /* url = 'http://wthrcdn.etouch.cn/weather_mini?city=' + shengfen;
+        url = 'http://wthrcdn.etouch.cn/weather_mini?city=' + shengfen;
         $.ajax({
             url: url,
             method: 'GET',
@@ -129,6 +151,6 @@ $(function() {
               //list = res.data.data.forecast;
               console.log(res);
             }
-        }) */
-    }
+        })
+    } */
 })
